@@ -10,6 +10,7 @@ namespace itumelengRecipeApp
     {
         static void Main(string[] args)
         {
+            Recipe.storeRecipe();
             Console.ReadLine();
         }
     }
