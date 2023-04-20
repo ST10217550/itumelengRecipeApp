@@ -10,6 +10,10 @@ namespace itumelengRecipeApp
     {
         static void Main(string[] args)
         {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("Welcome to the recipe app!");
+            
+
             Recipe.storeRecipe();
             Console.ReadLine();
         }
