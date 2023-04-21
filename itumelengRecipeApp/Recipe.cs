@@ -38,7 +38,7 @@ namespace itumelengRecipeApp
 
             for (int i = 0; i < numOfIng; i++)
             {
-                Console.WriteLine("Enter the first igredient: ");
+                Console.WriteLine("Enter the name of igredient: ");
                 nameOfIng = Console.ReadLine();
                 nameOfIngArray[i] = nameOfIng;
 
@@ -72,9 +72,15 @@ namespace itumelengRecipeApp
 
         }
   
-        public static void display(String nameOfRecipe)
+        public static void display()
         {
+            Console.BackgroundColor= ConsoleColor.White; 
+            Console.ForegroundColor= ConsoleColor.Black;
             
+            for(int k = 0; k < nameOfRecArray.Length; k++)
+            {
+                Console.WriteLine(nameOfRecArray[k] + "/n" + nameOfIngArray[k] + "/n" + quantityOfRecArray[k] + "/n" + unitOfMesurArray[k] + "/n" + stepsArray[k]);
+            }
         }
         
 

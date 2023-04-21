@@ -15,6 +15,7 @@ namespace itumelengRecipeApp
             
 
             Recipe.storeRecipe();
+            Recipe.display();
             Console.ReadLine();
         }
     }
