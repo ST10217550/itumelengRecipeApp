@@ -10,6 +10,7 @@ namespace itumelengRecipeApp
 {
     internal class Recipe
     {
+        //variabes
         private static int numOfIng = 0; 
         private static int numOfSteps = 0;
         private static String nameOfRecipe;
@@ -23,6 +24,8 @@ namespace itumelengRecipeApp
         private static String[] stepsArray;
 
 
+
+        // my getters and setters 
         public int NumOfIng
         {
             get { return numOfIng; }
@@ -66,7 +69,9 @@ namespace itumelengRecipeApp
         }
 
        
+        
 
+        //methode to store the data of the recipe
         public static void storeRecipe()
         {
             Console.WriteLine("Enter the name of your recipe: ");
@@ -117,6 +122,9 @@ namespace itumelengRecipeApp
 
         }
   
+
+
+        //method to display the recipe
         public static void display()
         {
             Console.BackgroundColor= ConsoleColor.White; 
@@ -133,6 +141,9 @@ namespace itumelengRecipeApp
             }
         }
 
+
+
+        //method for scaling the recipe to disired size
         public static void scaling()
         {
             int scaleValue;
@@ -165,7 +176,7 @@ namespace itumelengRecipeApp
                 for (int i = 0; i < nameOfIngArray.Length; i++)
                 {
                     quantityOfRecArray[i] *= 2;
-                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + );
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray[i] + "\n" + unitOfMesurArray[i]);
                 }
 
                 for (int n = 0; n < stepsArray.Length; n++)
@@ -179,7 +190,7 @@ namespace itumelengRecipeApp
                 for (int i = 0; i < nameOfIngArray.Length; i++)
                 {
                     quantityOfRecArray[i] *= 3;
-                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + );
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray[i] + "\n" + unitOfMesurArray[i]);
                 }
 
                 for (int n = 0; n < stepsArray.Length; n++)
@@ -188,7 +199,6 @@ namespace itumelengRecipeApp
                 }
 
             }
-
 
            
         }

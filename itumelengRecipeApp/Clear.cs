@@ -13,6 +13,8 @@ namespace itumelengRecipeApp
         private static String[] unitOfMesurArray;
         private static String[] stepsArray;
 
+
+        //method to clear the data
         public static void clear()
         {
             nameOfIngArray= null;
