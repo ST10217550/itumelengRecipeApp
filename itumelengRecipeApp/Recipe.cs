@@ -12,43 +12,87 @@ namespace itumelengRecipeApp
     {
         private static int numOfIng = 0; 
         private static int numOfSteps = 0;
-        private static String nameOfRecipe = null;
+        private static String nameOfRecipe;
         private static String nameOfIng;
         private static int quantityOfIng;
         private static String unitOfMesur;
         private static String steps;
+        private static String[] nameOfIngArray;
+        private static int[] quantityOfRecArray;
+        private static String[] unitOfMesurArray;
+        private static String[] stepsArray;
 
 
+        public int NumOfIng
+        {
+            get { return numOfIng; }
+            set { numOfIng = value; }
+        }
+
+        public String NameofRecipe
+        {
+            get { return nameOfRecipe; }
+            set { nameOfRecipe = value; }
+        }
+
+        public String NameOfIng
+        {
+            get { return nameOfIng; }
+            set
+            {
+                nameOfIng = value;
+            }
+        }
+
+        public int QuantityOfIng
+        {
+            get { return quantityOfIng; }
+            set { quantityOfIng = value; }
+        }
+
+        public string UnitOfMesur
+        {
+            get { return unitOfMesur; }
+            set { unitOfMesur = value; }
+        }
+
+        public int NumOfSteps
+        {
+            get { return numOfSteps; }
+            set
+            {
+                numOfSteps = value;
+            }
+        }
+
+       
 
         public static void storeRecipe()
         {
             Console.WriteLine("Enter the name of your recipe: ");
             nameOfRecipe = Console.ReadLine();
+            
 
 
             Console.WriteLine("Enter number of ingridents needed for your recipe: ");
             numOfIng = Convert.ToInt32(Console.ReadLine());
-
-            private static String[] nameOfRecArray;
-            private static String[] nameOfIngArray = new string[numOfIng];
-            private static int[] quantityOfRecArray = new int[numOfIng];
-            private static String[] unitOfMesurArray = new string[numOfIng];
-            private static String[] stepsArray = new string[numOfIng];
+            nameOfIngArray= new string[numOfIng];
+            quantityOfRecArray = new int[numOfIng];
+            unitOfMesurArray = new string[numOfIng];
 
 
+            
             for (int i = 0; i < numOfIng; i++)
             {
                 Console.WriteLine("Enter the name of ingredient: ");
-                nameOfIng = Console.ReadLine();
-                nameOfIngArray[i] = nameOfIng;
+                nameOfIngArray[i] = Console.ReadLine();
 
                 Console.WriteLine("Enter the quantity of the ingredient: ");
-                quantityOfIng = Convert.ToInt32(Console.ReadLine());
-                quantityOfRecArray[i] = quantityOfIng;
+                quantityOfRecArray[i] = Convert.ToInt32(Console.ReadLine());
+
 
                 Console.WriteLine("Enter the unit of measurement: ");
-                unitOfMesur = Console.ReadLine();
-                unitOfMesurArray[i] = unitOfMesur;
+                unitOfMesurArray[i] = Console.ReadLine() ;
 
                 Console.WriteLine("Your ingredient has been successfully added! ");
 
@@ -57,8 +101,9 @@ namespace itumelengRecipeApp
 
             Console.WriteLine("Enter the number of steps :");
             numOfSteps= Convert.ToInt32(Console.ReadLine());
+            stepsArray = new string[numOfSteps];
 
-            for(int j = 0; j < numOfSteps; j++)
+            for(int j = 1; j < numOfSteps; j++)
             {
                 Console.WriteLine("Enter Step " + (j));
                 steps = Console.ReadLine();
@@ -77,12 +122,27 @@ namespace itumelengRecipeApp
             Console.BackgroundColor= ConsoleColor.White; 
             Console.ForegroundColor= ConsoleColor.Black;
             
-            for(int k = 0; k < nameOfRecArray.Length; k++)
+            for(int k = 0; k < nameOfIng.Length; k++)
             {
-                Console.WriteLine(nameOfRecArray[k] + "/n" + nameOfIngArray[k] + "/n" + quantityOfRecArray[k] + "/n" + unitOfMesurArray[k] + "/n" + stepsArray[k]);
+                Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k] + "\n Steps: " + stepsArray[k]);
             }
         }
-        
+
+        public int scale(int scaleValue)
+        {
+            int finalscale = 0;
+
+            Console.WriteLine("Enter the scale you would like to convert the recipe: ");
+            scaleValue = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = 0; i < nameOfRecipe.Length; i++)
+            {
+
+            }
+
+            return finalscale;
+        }
+
 
     }
 
