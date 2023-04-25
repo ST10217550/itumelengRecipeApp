@@ -133,8 +133,9 @@ namespace itumelengRecipeApp
             }
         }
 
-        public static void scaling(int scaleValue)
+        public static void scaling()
         {
+            int scaleValue;
             int finalscale = 0;
 
             ConsoleColor color = ConsoleColor.DarkGreen;
