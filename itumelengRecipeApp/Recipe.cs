@@ -10,19 +10,13 @@ namespace itumelengRecipeApp
 {
     internal class Recipe
     {
-        private static int numOfIng = 0;
+        private static int numOfIng = 0; 
         private static int numOfSteps = 0;
-        private static String nameOfRecipe;
+        private static String nameOfRecipe = null;
         private static String nameOfIng;
         private static int quantityOfIng;
         private static String unitOfMesur;
         private static String steps;
-        private static String[] nameOfRecArray;
-        private static String[] nameOfIngArray;
-        private static int[] quantityOfRecArray;
-        private static String[] unitOfMesurArray;
-        private static String[] stepsArray;
-
 
 
 
@@ -35,10 +29,16 @@ namespace itumelengRecipeApp
             Console.WriteLine("Enter number of ingridents needed for your recipe: ");
             numOfIng = Convert.ToInt32(Console.ReadLine());
 
+            private static String[] nameOfRecArray;
+            private static String[] nameOfIngArray = new string[numOfIng];
+            private static int[] quantityOfRecArray = new int[numOfIng];
+            private static String[] unitOfMesurArray = new string[numOfIng];
+            private static String[] stepsArray = new string[numOfIng];
+
 
             for (int i = 0; i < numOfIng; i++)
             {
-                Console.WriteLine("Enter the name of igredient: ");
+                Console.WriteLine("Enter the name of ingredient: ");
                 nameOfIng = Console.ReadLine();
                 nameOfIngArray[i] = nameOfIng;
 
