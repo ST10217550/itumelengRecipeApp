@@ -171,6 +171,7 @@ namespace itumelengRecipeApp
                 }
 
             }
+
             else if(scaleValue == 2)
             {
                 for (int i = 0; i < nameOfIngArray.Length; i++)
