@@ -186,6 +186,7 @@ namespace itumelengRecipeApp
                 }
 
             }
+
             else
             {
                 for (int i = 0; i < nameOfIngArray.Length; i++)
