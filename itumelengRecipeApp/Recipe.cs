@@ -122,25 +122,74 @@ namespace itumelengRecipeApp
             Console.BackgroundColor= ConsoleColor.White; 
             Console.ForegroundColor= ConsoleColor.Black;
             
-            for(int k = 0; k < nameOfIng.Length; k++)
+            for(int k = 0; k < nameOfIngArray.Length; k++)
             {
-                Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k] + "\n Steps: " + stepsArray[k]);
+                Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k] );
+            }
+
+            for(int n = 0;n < stepsArray.Length; n++)
+            {
+                Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
             }
         }
 
-        public int scale(int scaleValue)
+        public static void scaling(int scaleValue)
         {
             int finalscale = 0;
 
-            Console.WriteLine("Enter the scale you would like to convert the recipe: ");
+            ConsoleColor color = ConsoleColor.DarkGreen;
+
+            Console.WriteLine("Enter 1 is you would like to scale the quanity to half: " + "\n" +
+                              "Enter 2 is you would like to scale the quanity to double: " + "\n" +
+                              "Enter 3 is you would like to scale the quanity to triple: " + "\n");
             scaleValue = Convert.ToInt32(Console.ReadLine());
 
-            for (int i = 0; i < nameOfRecipe.Length; i++)
+            if(scaleValue == 1)
             {
+                for (int i = 0; i < nameOfIngArray.Length; i++)
+                {
+                    double [] quantityOfRecArray1 = new double[quantityOfRecArray.Length];
+                    quantityOfRecArray1[i] = Convert.ToDouble(quantityOfRecArray[i]);
+                    quantityOfRecArray1[i] *= 0.5;
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray1[i] + "\n" + unitOfMesurArray[i]);
+                }
+                for (int n = 0; n < stepsArray.Length; n++)
+                {
+                    Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
+                }
+
+            }
+            else if(scaleValue == 2)
+            {
+                for (int i = 0; i < nameOfIngArray.Length; i++)
+                {
+                    quantityOfRecArray[i] *= 2;
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + );
+                }
+
+                for (int n = 0; n < stepsArray.Length; n++)
+                {
+                    Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < nameOfIngArray.Length; i++)
+                {
+                    quantityOfRecArray[i] *= 3;
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + );
+                }
+
+                for (int n = 0; n < stepsArray.Length; n++)
+                {
+                    Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
+                }
 
             }
 
-            return finalscale;
+
+           
         }
 
 
