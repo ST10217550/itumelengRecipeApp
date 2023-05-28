@@ -18,6 +18,7 @@ namespace itumelengRecipeApp
             Recipe.storeRecipe();
             Recipe.display();
             Recipe.scaling();
+            Recipe.reset();
 
             Console.WriteLine("Do you want to clear the recipe? ");
             choice=Console.ReadLine();

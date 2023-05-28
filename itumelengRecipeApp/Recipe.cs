@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace itumelengRecipeApp
 {
@@ -18,10 +20,12 @@ namespace itumelengRecipeApp
         private static int quantityOfIng;
         private static String unitOfMesur;
         private static String steps;
-        private static String[] nameOfIngArray;
-        private static int[] quantityOfRecArray;
-        private static String[] unitOfMesurArray;
-        private static String[] stepsArray;
+        private static  List<String> nameOfRecArray;
+        private static List<String> nameOfIngArray;
+        private static List<int> quantityOfRecArray;
+        private static List<String> unitOfMesurArray;
+        private static List<String> stepsArray;
+        private static int scaleValue;
 
 
 
@@ -68,8 +72,63 @@ namespace itumelengRecipeApp
             }
         }
 
+        public List<String> NameOfRecArray
+        {
+            get { return nameOfRecArray; }
+            set { nameOfRecArray = value; }
+        }
+
+        public List<String> NameOfIngArray
+        {
+            get { return nameOfIngArray; }
+            set { nameOfIngArray = value;}
+        }
+
+        public List<int> QuantityOfRecArray
+        {
+            get { return quantityOfRecArray; }
+            set { quantityOfRecArray = value; }
+        }
+
+        public List<String> UnitOfMesurArray
+        {
+            get { return unitOfMesurArray; }
+            set { unitOfMesurArray = value;}
+        }
+
+        public List<String> StepsArray
+        {
+            get { return stepsArray; }
+            set
+            {
+                stepsArray = value;
+            }
+        }
+
        
-        
+        public static void menu()
+        {
+            String menu = null;
+
+            Console.WriteLine("1. Enter recipe" + "\n" +
+                              "2. Display all recipes" + "\n" +
+                              "3. Display a recipe");
+            Console.ReadLine();
+
+
+            while ((menu != "1") ||(menu != "2") ||(menu != "3") )
+            {
+                if(menu == "1")
+                {
+                    storeRecipe();
+                }
+
+                else if(menu == "2")
+                {
+
+                }
+            }
+        }
 
         //methode to store the data of the recipe
         public static void storeRecipe()
@@ -81,10 +140,9 @@ namespace itumelengRecipeApp
 
             Console.WriteLine("Enter number of ingridents needed for your recipe: ");
             numOfIng = Convert.ToInt32(Console.ReadLine());
-            nameOfIngArray= new string[numOfIng];
-            quantityOfRecArray = new int[numOfIng];
-            unitOfMesurArray = new string[numOfIng];
-
+            nameOfIngArray = new List<string>(numOfIng);
+            quantityOfRecArray = new List<int>(numOfIng);
+            unitOfMesurArray = new List<String>(numOfIng);
 
             
             for (int i = 0; i < numOfIng; i++)
@@ -142,11 +200,9 @@ namespace itumelengRecipeApp
         //method for scaling the recipe to disired size
         public static void scaling()
         {
-            int scaleValue;
-            int finalscale = 0;
-
-            ConsoleColor color = ConsoleColor.DarkGreen;
-
+           
+            Console.ForegroundColor= ConsoleColor.DarkGreen;
+            
             Console.WriteLine("Enter 1 is you would like to scale the quanity to half: " + "\n" +
                               "Enter 2 is you would like to scale the quanity to double: " + "\n" +
                               "Enter 3 is you would like to scale the quanity to triple: " + "\n");
@@ -202,9 +258,32 @@ namespace itumelengRecipeApp
         }
 
 
+        //method to reset the values
+        public static void reset()
+        {
+            string pick;
+
+            Console.WriteLine("Do you want to reset? ");
+            pick = Console.ReadLine();
+
+            if(pick == "yes")
+            {
+                display();
+
+            }
+
+            else
+            {
+                Console.WriteLine("Thanks for using the app");
+            }
+        }
+
+
     }
 
     internal class pritave
     {
     }
 }
+ 
+  
