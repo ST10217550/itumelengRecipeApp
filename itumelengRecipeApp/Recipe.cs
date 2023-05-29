@@ -173,7 +173,7 @@ namespace itumelengRecipeApp
 
 
             }
-
+            //entering number of steps
             Console.WriteLine("Enter the number of steps :");
             numOfSteps= Convert.ToInt32(Console.ReadLine());
             stepsArray = new List<string>(numOfSteps);
