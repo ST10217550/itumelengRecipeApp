@@ -257,7 +257,6 @@ namespace itumelengRecipeApp
 
 
 
-
         //method for scaling the recipe to disired size
         public static void scaling()
         {
