@@ -286,6 +286,7 @@ namespace itumelengRecipeApp
 
             else if(scaleValue == 2)
             {
+                //multiply by 2 to get double
                 for (int i = 0; i < nameOfIngArray.Count; i++)
                 {
                     quantityOfRecArray[i] *= 2;
