@@ -312,7 +312,6 @@ namespace itumelengRecipeApp
                     Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
                 }
 
-
             }
 
            
