@@ -112,11 +112,12 @@ namespace itumelengRecipeApp
 
             Console.WriteLine("1. Enter recipe" + "\n" +
                               "2. Display all recipes" + "\n" +
-                              "3. Display a recipe");
+                              "3. Display a recipe" + "\n" +
+                              "4. Scaling");
             Console.ReadLine();
 
 
-            while ((menu != "1") ||(menu != "2") ||(menu != "3") )
+            while ((menu == "1") ||(menu == "2") ||(menu == "3")||(menu == "4") )
             {
                 if(menu == "1")
                 {
@@ -126,6 +127,16 @@ namespace itumelengRecipeApp
                 else if(menu == "2")
                 {
 
+                }
+
+                else if(menu == "3")
+                {
+
+                }
+
+                else
+                {
+                    Console.WriteLine("Thank you for using the app!");
                 }
             }
         }
@@ -144,7 +155,8 @@ namespace itumelengRecipeApp
             quantityOfRecArray = new List<int>(numOfIng);
             unitOfMesurArray = new List<String>(numOfIng);
 
-            
+
+
             for (int i = 0; i < numOfIng; i++)
             {
                 Console.WriteLine("Enter the name of ingredient: ");
@@ -164,7 +176,7 @@ namespace itumelengRecipeApp
 
             Console.WriteLine("Enter the number of steps :");
             numOfSteps= Convert.ToInt32(Console.ReadLine());
-            stepsArray = new string[numOfSteps];
+            stepsArray = new List<string>(numOfSteps);
 
             for(int j = 1; j < numOfSteps; j++)
             {
@@ -179,12 +191,13 @@ namespace itumelengRecipeApp
 
 
         //method to display the recipe
-        public static void display()
+        public static void display(string search)
         {
             Console.BackgroundColor= ConsoleColor.White; 
             Console.ForegroundColor= ConsoleColor.Black;
             
-            for(int k = 0; k < nameOfIngArray.Length; k++)
+            
+            foreach(string in nameOfIngArray.Length)
             {
                 Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k] );
             }
