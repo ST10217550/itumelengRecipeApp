@@ -167,7 +167,7 @@ namespace itumelengRecipeApp
 
 
                 Console.WriteLine("Enter the unit of measurement: ");
-                unitOfMesurArray[i] = Console.ReadLine() ;
+                unitOfMesurArray[i] = Console.ReadLine();
 
                 Console.WriteLine("Your ingredient has been successfully added! ");
 
@@ -191,21 +191,28 @@ namespace itumelengRecipeApp
 
 
         //method to display the recipe
-        public static void display(string search)
+        public static   String display(string search)
         {
             Console.BackgroundColor= ConsoleColor.White; 
             Console.ForegroundColor= ConsoleColor.Black;
-            
-            
-            foreach(string in nameOfIngArray.Length)
+
+            Console.WriteLine("Enter the name of recipe you are looking for:");
+            search = Console.ReadLine();
+
+            for(int k = 0; k < nameOfRecArray.Count; k++)
             {
-                Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k] );
+                if (nameOfRecArray[k] == search)
+                {
+                    Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k]);
+                }
             }
 
-            for(int n = 0;n < stepsArray.Length; n++)
+            for(int n = 0;n < stepsArray.Count; n++)
             {
                 Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
             }
+
+            return search;
         }
 
 
@@ -223,14 +230,14 @@ namespace itumelengRecipeApp
 
             if(scaleValue == 1)
             {
-                for (int i = 0; i < nameOfIngArray.Length; i++)
+                for (int i = 0; i < nameOfIngArray.Count; i++)
                 {
-                    double [] quantityOfRecArray1 = new double[quantityOfRecArray.Length];
+                    List<double>quantityOfRecArray1 = new List<double>(quantityOfRecArray.Count);
                     quantityOfRecArray1[i] = Convert.ToDouble(quantityOfRecArray[i]);
                     quantityOfRecArray1[i] *= 0.5;
                     Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray1[i] + "\n" + unitOfMesurArray[i]);
                 }
-                for (int n = 0; n < stepsArray.Length; n++)
+                for (int n = 0; n < stepsArray.Count; n++)
                 {
                     Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
                 }
