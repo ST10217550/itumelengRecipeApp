@@ -139,7 +139,12 @@ namespace itumelengRecipeApp
 
                 else if(menu == "3")
                 {
+                    display();
+                }
 
+                else if(menu == "4")
+                {
+                    scaling();
                 }
 
                 else
