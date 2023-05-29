@@ -20,11 +20,14 @@ namespace itumelengRecipeApp
         private static int quantityOfIng;
         private static String unitOfMesur;
         private static String steps;
+        private static double calories;
         private static  List<String> nameOfRecArray;
         private static List<String> nameOfIngArray;
         private static List<int> quantityOfRecArray;
         private static List<String> unitOfMesurArray;
         private static List<String> stepsArray;
+        private static List<double> caloriesArray;
+        private static List<String> foodGroupArray;
         private static int scaleValue;
 
 
@@ -126,6 +129,11 @@ namespace itumelengRecipeApp
 
                 else if(menu == "2")
                 {
+                    nameOfRecArray.Sort();
+                    foreach(string i in nameOfRecArray)
+                    {
+                        Console.WriteLine(nameOfRecArray);
+                    }
 
                 }
 
@@ -154,6 +162,8 @@ namespace itumelengRecipeApp
             nameOfIngArray = new List<string>(numOfIng);
             quantityOfRecArray = new List<int>(numOfIng);
             unitOfMesurArray = new List<String>(numOfIng);
+            caloriesArray = new List<double>(numOfIng);
+            foodGroupArray = new List<string>(numOfIng);
 
 
 
@@ -161,6 +171,19 @@ namespace itumelengRecipeApp
             {
                 Console.WriteLine("Enter the name of ingredient: ");
                 nameOfIngArray[i] = Console.ReadLine();
+                Console.WriteLine("Enter number of calories: ");
+
+                caloriesArray[i] = Convert.ToDouble(Console.ReadLine());
+                calories = Convert.ToDouble(Console.ReadLine());
+                double totalCals = +calories;
+
+                if (totalCals > 300) 
+                {
+                    Console.WriteLine("calories over 300");
+                }
+                Console.WriteLine("Enter the food group");
+                foodGroupArray[i] = Console.ReadLine();
+
 
                 Console.WriteLine("Enter the quantity of the ingredient: ");
                 quantityOfRecArray[i] = Convert.ToInt32(Console.ReadLine());
@@ -171,30 +194,41 @@ namespace itumelengRecipeApp
 
                 Console.WriteLine("Your ingredient has been successfully added! ");
 
+                
+
+                }
+                //entering number of steps
+                Console.WriteLine("Enter the number of steps :");
+                numOfSteps = Convert.ToInt32(Console.ReadLine());
+                stepsArray = new List<string>(numOfSteps);
+                
+
+                for (int j = 1; j < numOfSteps; j++)
+                {
+                    Console.WriteLine("Enter Step " + (j));
+                    steps = Console.ReadLine();
+                    stepsArray[j] = steps;
+
+
+                }
 
             }
-            //entering number of steps
-            Console.WriteLine("Enter the number of steps :");
-            numOfSteps= Convert.ToInt32(Console.ReadLine());
-            stepsArray = new List<string>(numOfSteps);
 
-            for(int j = 1; j < numOfSteps; j++)
-            {
-                Console.WriteLine("Enter Step " + (j));
-                steps = Console.ReadLine();
-                stepsArray[j] = steps;
-
-            }
-
+        public delegate void totalCalories(double calories); 
+        public static void caloriesCalc(totalCalories obj)
+        {
+            double total += calories;
+            obj.total;
         }
   
 
 
         //method to display the recipe
-        public static   String display(string search)
+        public static void display()
         {
             Console.BackgroundColor= ConsoleColor.White; 
             Console.ForegroundColor= ConsoleColor.Black;
+            String search;
 
             Console.WriteLine("Enter the name of recipe you are looking for:");
             search = Console.ReadLine();
@@ -204,15 +238,17 @@ namespace itumelengRecipeApp
                 if (nameOfRecArray[k] == search)
                 {
                     Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[k] + "\n" + quantityOfRecArray[k] + "\n" + unitOfMesurArray[k]);
+
+                    for (int n = 0; n < stepsArray.Count; n++)
+                    {
+                        Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
+                    }
                 }
+
+               
             }
 
-            for(int n = 0;n < stepsArray.Count; n++)
-            {
-                Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
-            }
 
-            return search;
         }
 
 
@@ -246,13 +282,13 @@ namespace itumelengRecipeApp
 
             else if(scaleValue == 2)
             {
-                for (int i = 0; i < nameOfIngArray.Length; i++)
+                for (int i = 0; i < nameOfIngArray.Count; i++)
                 {
                     quantityOfRecArray[i] *= 2;
                     Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray[i] + "\n" + unitOfMesurArray[i]);
                 }
 
-                for (int n = 0; n < stepsArray.Length; n++)
+                for (int n = 0; n < stepsArray.Count; n++)
                 {
                     Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
                 }
@@ -261,13 +297,13 @@ namespace itumelengRecipeApp
 
             else
             {
-                for (int i = 0; i < nameOfIngArray.Length; i++)
+                for (int i = 0; i < nameOfIngArray.Count; i++)
                 {
                     quantityOfRecArray[i] *= 3;
                     Console.WriteLine(nameOfRecipe + "\n" + nameOfIngArray[i] + "\n" + quantityOfRecArray[i] + "\n" + unitOfMesurArray[i]);
                 }
 
-                for (int n = 0; n < stepsArray.Length; n++)
+                for (int n = 0; n < stepsArray.Count; n++)
                 {
                     Console.WriteLine("steps " + n + "\n" + stepsArray[n]);
                 }
